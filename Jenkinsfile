@@ -19,7 +19,7 @@ node{
    
    stage("App deployment started"){
      sh 'oc login --token=fwlXR0uVPx2BncCc4UQtb5plpO9eJyJ2ZA6Ubo0ETvc --server=https://api.us-west-1.starter.openshift-online.com:6443'
-     sh 'oc project itrainspartans'
+     sh 'oc project proj1'
      //sh 'oc new-app --name py-mani manee2k6/py-spartans'
       sh 'oc rollout latest dc/py-mani -o json' 
       sh 'oc rollout latest manee2k6/py-newrelic --name python \
