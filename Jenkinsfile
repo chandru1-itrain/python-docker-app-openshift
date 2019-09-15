@@ -6,19 +6,19 @@ node{
       }
    
    stage('Docker Build') {
-     def app = docker.build "manee2k6/py-spartans"
+     def app = docker.build "manee2k6/py-newrelic"
     }
    
    stage("Tag & Push image"){
       withDockerRegistry([credentialsId: 'dockerID',url: ""]) {
-          sh 'docker tag manee2k6/py-spartans manee2k6/py-spartans:dev'
-          sh 'docker push manee2k6/py-spartans:dev'
-          sh 'docker push manee2k6/py-spartans:latest'
+          sh 'docker tag manee2k6/py-newrelic manee2k6/py-newrelic:dev'
+          sh 'docker push manee2k6/py-newrelic:dev'
+          sh 'docker push manee2k6/py-newrelic:latest'
       }
     }
    
    stage("App deployment started"){
-     sh 'oc login --token=VQUyTz1TcNmkHU8d9of0D4HZdkC6nXLozsuZg7njj9g --server=https://api.us-west-1.starter.openshift-online.com:6443'
+     sh 'oc login --token=fwlXR0uVPx2BncCc4UQtb5plpO9eJyJ2ZA6Ubo0ETvc --server=https://api.us-west-1.starter.openshift-online.com:6443'
      sh 'oc project itrainspartans'
      //sh 'oc new-app --name py-mani manee2k6/py-spartans'
       sh 'oc rollout latest dc/py-mani -o json' 
