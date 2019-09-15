@@ -1,7 +1,7 @@
 # Use an official Python runtime as a parent image
 FROM manee2k6/python:latest
 
-MAINTAINER MANIVANNAN.C
+MAINTAINER CHANDRU
 
 # Set the working directory to /app
 WORKDIR /app
@@ -19,7 +19,7 @@ RUN pip install -r requirements.txt
 EXPOSE 5000
 
 # Define environment variable
-ENV NAME ITRAIN-BATMAN
+ENV NAME ITRAIN-SPARTANS
 
 #When you launch the container, it runs the script and then exits
 ENTRYPOINT ["newrelic-admin", "run-program"]
